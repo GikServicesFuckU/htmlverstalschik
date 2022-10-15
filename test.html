@@ -1,0 +1,478 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .piter {
+            width: 341px;
+            height: 220px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .kartochka {
+            width: 341px;
+            border: 1px solid gray;
+            border-radius: 15px;
+            margin-top: 26px;
+            margin-left: 17px;
+            margin-right: 17px;
+            margin-bottom: 31px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #new1 {
+            background-color: #FED74B;
+            width: 99px;
+            height: 35px;
+            position: absolute;
+            left: 25px;
+            top: 67px;
+            font-size: 12px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 35px;
+        }
+
+        #new2 {
+            background-color: #7553FF;
+            color: white;
+            width: 129px;
+            height: 43px;
+            position: absolute;
+            left: 25px;
+            top: 603px;
+            border-top-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 35px;
+        }
+
+        #new22 {
+            background-color: #FED74B;
+            width: 129px;
+            height: 43px;
+            position: absolute;
+            left: 25px;
+            top: 460px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 45px;
+            display: none;
+            visibility: hidden;
+        }
+
+        .time {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            max-width: 290px;
+            max-height: 20px;
+        }
+
+        .time div {
+            background-color: #D9E8FF;
+            width: 63px;
+            height: 24px;
+            margin: 0px 0px 20px 20px;
+            border-radius: 11px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 24px;
+
+        }
+
+        .link {
+            display: flex;
+            flex-direction: row;
+            justify-items: center;
+        }
+
+        .cena {
+            display: flex;
+            flex-direction: column;
+            margin-inline-start: 10px;
+            margin-inline-end: 0px;
+            max-width: 120px;
+            max-height: 60px;
+        }
+
+        .bigcena {
+            margin: 0px -10px 10px 0px;
+            font-size: 30px;
+        }
+
+        .big {
+            margin: 0px -10px 10px 0px;
+            font-size: 30px;
+        }
+
+        .bigc {
+            margin: 0px -10px 10px 0px;
+            font-size: 30px;
+            display: none;
+            visibility: hidden;
+        }
+
+        .minicena {
+            font-size: 10px;
+        }
+
+        .clocks {
+            width: 16px;
+            height: 16px;
+        }
+
+        .timelim {
+            font-size: 12px;
+            color: #9E9E9E;
+            display: inline-block;
+        }
+
+        .timer {
+            flex-direction: row;
+        }
+
+        ul>li {
+            padding-left: 20px;
+            position: relative;
+            margin: 10px;
+        }
+
+        ul>li:before {
+            content: '✔';
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #FED74B;
+        }
+
+        ul {
+            list-style: none;
+            padding-inline-start: 0px;
+        }
+
+        .list {
+            display: flex;
+            padding-bottom: 7px;
+        }
+
+        .more {
+            background-color: #FED74B;
+            border: 1px solid #CBA500;
+            border-radius: 11px;
+            width: 193px;
+            height: 44px;
+            margin-left: 30px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 44px;
+        }
+
+        .attention {
+            width: 317px;
+            font-size: 14px;
+            margin-left: 28px;
+        }
+
+        .attention1 {
+            width: 317px;
+            font-size: 14px;
+            display: none;
+            visibility: hidden;
+        }
+
+        #k3 {
+            display: none;
+            visibility: hidden;
+        }
+
+        .piter1 {
+            display: none;
+            visibility: hidden;
+            width: 341px;
+            height: 220px;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        @media(min-width: 1440px) and (max-width:1920px) {
+            .kartochka {
+                width: 1070px;
+                height: 370px;
+                display: flex;
+                flex-direction: row;
+            }
+
+            #k3 {
+                display: block;
+                visibility: visible;
+            }
+
+            .piter1 {
+                display: block;
+                visibility: visible;
+                position: absolute;
+                left: 25px;
+                width: 473px;
+                height: 369px;
+            }
+
+            .timer {
+                position: relative;
+                top: 80px;
+            }
+
+            .piter {
+                display: none;
+                visibility: hidden;
+            }
+
+            #new1 {
+                background-color: #099CE8;
+                color: #D9E8FF;
+                position: absolute;
+                top: 113px;
+                /* сдвинула на такое расстояние,тк нет оригинального изображения,а по оригинальному макету цвет блока сливался с фоном */
+                width: 154px;
+                height: 42px;
+                vertical-align: middle;
+                line-height: 42px;
+                font-size: 16px;
+            }
+
+            #new2 {
+                display: none;
+                visibility: hidden;
+            }
+
+            #new22 {
+                display: block;
+                visibility: visible;
+                width: 180px;
+                height: 45px;
+                font-size: 16px;
+            }
+
+            .attention {
+                display: none;
+                visibility: hidden;
+            }
+
+            .attention1 {
+                display: block;
+                visibility: visible;
+                font-size: 26px;
+                width: 557px;
+            }
+
+            #a1 {
+                position: absolute;
+                top: 16px;
+            }
+
+            #a2 {
+                top: 415px;
+                position: absolute;
+            }
+
+            #a3 {
+                top: 820px;
+                position: absolute;
+            }
+
+            .maininfo {
+                width: 1070px;
+                margin-left: 491px;
+                top: 40px;
+            }
+
+            .big {
+                display: none;
+                visibility: hidden;
+            }
+
+            .bigc {
+                display: block;
+                visibility: visible;
+                font-size: 36px;
+                padding-left: 15px;
+                max-height: 24px;
+            }
+
+            ul {
+                position: relative;
+                top: 60px;
+                font-size: 18px;
+            }
+
+            .link {
+                position: relative;
+                top: 60px;
+            }
+
+            .timelim {
+                font-size: 14px;
+            }
+
+            .bigcena {
+                font-size: 36px;
+                padding-left: 15px;
+                max-height: 24px;
+            }
+
+            .minicena {
+                font-size: 14px;
+                width: 243px;
+            }
+
+            .more {
+                font-size: 18px;
+            }
+
+            .time div {
+            width: 73px;
+            height: 28px;
+            border-radius: 11px;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 28px;
+            font-size: 16px;
+
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="kartochka" id="k1">
+        <div>
+            <img src="https://avatars.mds.yandex.net/i?id=7e0fd94dc57d669c7fe7591dd3185c6a-5711249-images-thumbs&n=13"
+                class="piter">
+            <img src="https://avatars.mds.yandex.net/i?id=fa0688c693eeecfa008e1a303864d4fb-5858704-images-thumbs&n=13"
+                class="piter1">
+            <div id="new1">НОВИНКА</div>
+        </div>
+        <div class="maininfo">
+            <div class="timer">
+                <img src="https://bonduelle.ru/images/i_time2.png" class="clocks">
+                <p class="timelim">2 часа</p>
+            </div>
+            <div>
+                <p class="attention">АКЦИЯ - Обзорная экскурсия по рекам и каналам с остановками Hop on Hop Off 2019</p>
+                <p class="attention1" id="a1">АКЦИЯ - Обзорная экскурсия по рекам и каналам с остановками Hop on Hop Off
+                    2020</p>
+                <ul>
+                    <li>Билет на целый день</li>
+                    <li>Неограниченное число катаний</li>
+                    <li>6 остановок у главных достопримечательностей</li>
+                    <li class="list">Ближайший рейс сегодня
+                        <div class="time">
+                            <div>12:00</div>
+                            <div>12:00</div>
+                            <div>12:00</div>
+                            <div>12:00</div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="link">
+                <div class="cena">
+                    <div class="bigcena">900 P</div>
+                    <div class="minicena">1200 p на причале</div>
+                </div>
+                <div class="more">Подробнее</div>
+            </div>
+        </div>
+    </div>
+    <div class="kartochka" id="k2">
+        <div>
+            <img src="https://avatars.mds.yandex.net/i?id=7e0fd94dc57d669c7fe7591dd3185c6a-5711249-images-thumbs&n=13"
+                class="piter">
+            <img src="https://554a875a-71dc-4f5f-b6bf-ae8967f137d5.selcdn.net/thumbs2/e8b83efe-7d9c-11ec-9d3a-b275bec179d8.800x600.jpeg"
+                class="piter1">
+            <div id="new2">НОВИНКА</div>
+            <div id="new22">КРУГЛЫЙ ГОД</div>
+        </div>
+        <div class="maininfo">
+            <div class="timer">
+                <img src="https://bonduelle.ru/images/i_time2.png" class="clocks">
+                <p class="timelim">2 часа</p>
+            </div>
+            <div>
+                <p class="attention">АКЦИЯ - Обзорная экскурсия по рекам и каналам с остановками Hop on Hop Off 2019</p>
+                <p class="attention1" id="a2">АКЦИЯ - Обзорная экскурсия по рекам и каналам с остановками Hop on Hop Off
+                    2020</p>
+                <ul>
+                    <li>Билет на целый день</li>
+                    <li>Неограниченное число катаний</li>
+                    <li>6 остановок у главных достопримечательностей</li>
+                    <li class="list">Ближайший рейс сегодня
+                        <div class="time">
+                            <div>12:00</div>
+                            <div>12:00</div>
+                            <div>12:00</div>
+                            <div>12:00</div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="link">
+                <div class="cena">
+                    <div class="big">2900 P</div>
+                    <div class="bigc">900 P</div>
+                    <div class="minicena">1200 p на причале</div>
+                </div>
+                <div class="more">Подробнее</div>
+            </div>
+        </div>
+    </div>
+    <div class="kartochka" id="k3">
+        <div>
+            <img src="https://7d9e88a8-f178-4098-bea5-48d960920605.selcdn.net/620f9e63-b3df-4ded-9e23-3df66135bc3a/"
+                class="piter1">
+            <div id="new1">НОВИНКА</div>
+        </div>
+        <div class="maininfo">
+            <div class="timer">
+                <img src="https://bonduelle.ru/images/i_time2.png" class="clocks">
+                <p class="timelim">2 часа</p>
+            </div>
+            <div>
+                <p class="attention1" id="a3">АКЦИЯ - Обзорная экскурсия по рекам и каналам с остановками Hop on Hop Off
+                    2020</p>
+                <ul>
+                    <li>Билет на целый день</li>
+                    <li>Неограниченное число катаний</li>
+                    <li>6 остановок у главных достопримечательностей</li>
+                    <li class="list">Ближайший рейс сегодня
+                        <div class="time">
+                            <div>12:00</div>
+                            <div>12:00</div>
+                            <div>12:00</div>
+                            <div>12:00</div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="link">
+                <div class="cena">
+                    <div class="bigcena">900 P</div>
+                    <div class="minicena">1200 p на причале</div>
+                </div>
+                <div class="more">Подробнее</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
