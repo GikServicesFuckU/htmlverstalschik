@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <main id="main">
+    <p>a</p>
+    <a>b</a></main>
+    <ul>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+    <ol id="list">
+      <li>Январь</li>
+      <li>Февраль</li>
+      <li>Март</li>
+      <li>Апрель</li>
+      <li>Май</li>
+      <li>Июнь</li>
+      <li>Июль</li>
+      <li>Август</li>
+      <li>Сентябрь</li>
+      <li>Октябрь</li>
+      <li>Ноябрь</li>
+      <li>Декабрь</li>
+    </ol>
+    <button onclick="doFunction();">Нажми меня</button>
+<label name="no" onclick="k();"><input type="radio" id="radioSpanHeader1" name="yes"> Да</label>
+<label name="no" onclick="k();"><input type="radio" id="radioSpanHeader2" name="yes"> Нет</label>
+
+</body>
+<script>
+for (var i = 0; i < document.body.childNodes.length; i++) {
+      alert( document.body.childNodes[i]); 
+    }
+for (var i = 0; i < 2; i++) {
+      alert( document.body.childNodes[i].nodeType ); 
+    }
+    function createTable(data) {
+  var table = document.createElement("table");
+  var thead = document.createElement("thead");
+  var tr = document.createElement("tr");
+  for (var i = 0; i < data[0].length; i++) {
+    var th = document.createElement("th");
+    var newText = document.createTextNode(data[0][i]);
+    th.appendChild(newText);
+    tr.appendChild(th);
+  }
+  thead.appendChild(tr);
+  table.appendChild(thead);
+  
+  var tbody = document.createElement("tbody");
+  for (var i = 1; i < data.length; i++) {
+    var tr = document.createElement("tr");
+    for (var j=0; j < data[i].length; j++) {
+      var td = document.createElement("td");
+      var newText = document.createTextNode(data[i][j]);
+      td.appendChild(newText);
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+
+  table.appendChild(tbody);
+  return table;
+}
+
+window.onload = function() {
+  var table = createTable([
+    ["№", "Название месяца"],
+    ["1", "Январь"],
+    ["2", "Февраль"],
+    ["3", "Март"],
+    ["4", "Апрель"],
+    ["5", "Май"],
+    ["6", "Июнь"],
+    ["7", "Июль"],
+    ["8", "Август"],
+    ["9", "Сентябрь"],
+    ["10", "Октябрь"],
+    ["11", "Ноябрь"],
+    ["12", "Декабрь"]]);
+  document.body.appendChild(table);
+}
+  let ol = document.getElementsByTagName('ol')[0];
+let li = document.createElement('li')
+ol.appendChild(li).innerText ='13-го месяца не бывает';
+let ul = document.createElement('ul');
+li.appendChild(ul);
+let li1 = document.createElement('li');
+ul.appendChild(li1).innerText ='Понедельник';
+let li2 = document.createElement('li');
+ul.appendChild(li2).innerText ='Вторник';
+let li3 = document.createElement('li');
+ul.appendChild(li3).innerText ='Среда';
+let li4 = document.createElement('li');
+ul.appendChild(li4).innerText ='Четверг';
+let li5 = document.createElement('li');
+ul.appendChild(li5).innerText ='Пятница';
+let li6 = document.createElement('li');
+ul.appendChild(li6).innerText ='Суббота';
+let li7 = document.createElement('li');
+ul.appendChild(li7).innerText ='Воскресенье';
+function doFunction()
+{const $elem = document.querySelector('main');
+const textByTextContent = $elem.textContent;
+alert(textByTextContent);};
+
+function k() 
+{ 
+    var inp = document.getElementsByName('yes'); 
+var labels=document.getElementsByName('no'); 
+for(var i=0;i<inp.length;i++) 
+{ 
+    if(inp[i].checked){ 
+    labels[i].style.color="red";} 
+    else 
+    labels[i].style.color="blue"; 
+} 
+}
+</script>
+</html>

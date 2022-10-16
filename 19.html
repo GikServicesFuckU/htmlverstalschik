@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <input id="in1">
+    <div id="out1"></div>
+    <hr>
+    <a id="aaaa" href="https://google.com">гугол</a>
+    <hr id="hr1">
+    <label>Введите то,что хотите изменить и над кем
+        <input id="in2"></label>
+    <div id="div1">Элемент 1
+        <p id="p1">Элемент 2</p>
+        <i id="i1">Элемент 3</i>
+    </div>
+
+
+    <script>
+        document.getElementById("in1").addEventListener("keyup", function () {
+            document.getElementById("out1").textContent = document.getElementById("in1").value
+        })
+        document.getElementById("aaaa").addEventListener("click", function (e) {
+            e.preventDefault()
+            alert(e.type)
+        })
+        document.getElementById("aaaa").addEventListener("auxclick", function (e) {
+            alert(e.type)
+        })
+        document.getElementById("aaaa").addEventListener("dragend", function (e) {
+            alert(e.type)
+        })
+        document.getElementById("aaaa").addEventListener("contextmenu", function (e) {
+            alert(e.type)
+        })
+        document.getElementById("aaaa").addEventListener("dragstart", function (e) {
+            alert(e.type)
+        })
+        document.getElementById("in2").addEventListener("click", function () { in2.style.color = "blue"; })
+        document.getElementById("in2").addEventListener("auxclick", function () { in2.style.color = "red"; })
+        document.getElementById("hr1").addEventListener("click", function () { hr1.style.height = " 20px"; })
+        document.getElementById("hr1").addEventListener("auxclick", function () { hr1.style.height = "5px"; })
+        document.getElementById("div1").addEventListener("click", function () { div1.style.color = "blue";p1.style.color = "yellow"; }, true)
+        document.getElementById("div1").addEventListener("auxclick", function () { div1.style.color = "red"; })
+        document.getElementById("p1").addEventListener("click", function () { p1.style.color = "green"; }, true)
+        document.getElementById("p1").addEventListener("auxclick", function () { p1.style.color = "red"; })
+        document.getElementById("i1").addEventListener("click", function () { i1.style.color = "green"; })
+        document.getElementById("i1").addEventListener("auxclick", function () { i1.style.color = "red"; })
+        event = new Event(prompt(),);
+        document.querySelector(prompt()).dispatchEvent("click");
+    </script>
+</body>
+
+</html>

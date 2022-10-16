@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        img {
+            margin: 0 !important;
+        }
+    </style>
+
+</head>
+
+<body id="imded">
+    <h2>Помогите</h2>
+    <p>Меня держат взаперти и заставляют это делать</p>
+    <div id="div1"></div>
+    <br>
+    <div id="div2"></div>
+    <div>
+        <h2>Помогите</h2>
+        <p>Меня держат взаперти и заставляют это делать</p>
+    </div>
+    <hr>
+
+    <button id="createOLbutton" onclick="createOL()">Добавить список</button>
+    <br>
+    <button id="createLIbefore" disabled="true" onclick="createLIbefore()">Добавить элемент в начало списка</button>
+    <br>
+    <button id="createLIend" disabled="true" onclick="createLIend()">Добавить элемент в конец списка</button>
+    <br>
+    <button id="changeColor" disabled="true" onclick="changeColor()">Изменить цвет в нечетных элементах списка</button>
+    <br>
+    <a class="aaa" id="myBestLink">Линка</a>
+    <button onclick="setLinks('https\:\/\/google.com', 1)">setLink google</button>
+    <button onclick="setLinks('https\:\/\/yandex.com', 2)">setLink yandex</button>
+    <button onclick="setLinks('https\:\/\/genshin-impact-map.appsample.com/', 3)">setLink genshin map</button>
+    <div id="olWrapper"></div>
+    <figure id="spasite">
+        <img style="width:1500px; height:1000px;" src="./pictures/god.png">
+        <figcaption>Помогите</figcaption>
+    </figure>
+
+    <figure id="caruselcarusel" style="width:150px;height:100px;overflow:hidden">
+        <div id="caru" style="width:max-content">
+            <img src="pictures/Klinok1.png" style="width:150px;height:100px;">
+            <img src="pictures/Klinok2.png" style="width:150px;height:100px;">
+            <img src="pictures/Klinok3.png" style="width:150px;height:100px;">
+            <img src="pictures/Klinok4.png" style="width:150px;height:100px;">
+            <img src="pictures/Klinok5.png" style="width:150px;height:100px;">
+            <img src="pictures/Klinok1.png" style="width:150px;height:100px;">
+        </div>
+    </figure>
+    <script>
+        let div1Text = ""
+        for (let i = 0; i < document.body.children.length; i++) {
+            div1Text += document.body.children[i].tagName
+            if (i != document.body.children.length - 1) {
+                div1Text += ", "
+            }
+        }
+        document.getElementById("div1").textContent = div1Text;
+        document.getElementById("div2").textContent = getChildren(document);
+
+        function getChildren(el) {
+            let children = "";
+            if (el.children && el.children.length != 0) {
+                for (let i = 0; i < el.children.length; i++) {
+                    children += el.children[i].tagName + ", ";
+                    children += getChildren(el.children[i]);
+                }
+            }
+            return children;
+        }
+        var ol
+        function createOL() {
+            ol = document.createElement("ol");
+            document.getElementById("olWrapper").appendChild(ol);
+            document.getElementById("createOLbutton").disabled = true;
+            document.getElementById("createLIbefore").disabled = false;
+            document.getElementById("createLIend").disabled = false;
+            document.getElementById("changeColor").disabled = false;
+        }
+        function createLIbefore() {
+            let li = document.createElement("li");
+            li.textContent = "FFDAFADF";
+            ol.insertAdjacentElement("afterBegin", li)
+
+        }
+
+        function createLIend() {
+            let li = document.createElement("li");
+            li.textContent = "gnuqr93qjrds";
+            ol.insertAdjacentElement("beforeEnd", li)
+        }
+
+        function changeColor() {
+            for (let i = 0; i < ol.children.length; i += 2) {
+                let li = ol.children[i];
+                li.setAttribute("style", "color:red")
+            }
+        }
+        // #3
+        let a = document.getElementById("imded")
+        let b = document.body;
+        let c = document.getElementsByTagName("body")[0]
+        if (a == b && b == c) {
+            console.log("ура всё одинаково")
+        }
+        else {
+            console.log("ура всё неодинаково")
+        }
+
+        let pictureName = "Klinok";
+        let i = 1;
+        console.log("initialized");
+        document.getElementById('spasite').getElementsByTagName("img")[0].setAttribute("alt", pictureName + i);
+        document.getElementById('spasite').getElementsByTagName("img")[0].setAttribute("src", "pictures/" + pictureName + i + ".png");
+        document.getElementById('spasite').getElementsByTagName("figcaption")[0].textContent = pictureName + i;
+        document.getElementById('spasite').onclick = function () {
+            i += 1;
+            if (i > 5) {
+                i = 1;
+            }
+            document.getElementById('spasite').getElementsByTagName("img")[0].setAttribute("alt", pictureName + i);
+            document.getElementById('spasite').getElementsByTagName("img")[0].setAttribute("src", "pictures/" + pictureName + i + ".png");
+            document.getElementById('spasite').getElementsByTagName("figcaption")[0].textContent = pictureName + i;
+        }
+        let j = 0; // margin-left для слайдера
+        let CurInteval
+        let caru = document.getElementById("caru")
+        function doSlideLeft() {
+            setTimeout(SlideLeft, 2000);
+        }
+        function SlideLeft() {
+            CurInteval = setInterval(function () {
+                j -= 2;
+                if (j % (154 * 5) == 0) {
+                    j = 0
+                }
+                caru.setAttribute("style", "width:max-content;margin-left:" + j + "px");
+                if (j % 154 == 0) {
+                    clearInterval(CurInteval)
+                    doSlideLeft();
+                }
+            }, 50)
+        }
+        doSlideLeft();
+        function setLinks(href, method) {
+            switch (method) {
+                case 1: {
+                    document.getElementById("myBestLink").setAttribute("href", href);
+                }
+                case 2: {
+                    for (let el of document.getElementsByName("a")) {
+                        if (el.textContent == "Линка") {
+                            el.setAttribute.setAttribute("href", href);
+                        }
+                    }
+                }
+                case 3: {
+                    document.getElementsByClassName("aaa")[0].setAttribute("href", href);
+                }
+            }
+        }
+
+        function createTable(data) {
+            var table = document.createElement("table");
+            var thead = document.createElement("thead");
+            var tr = document.createElement("tr");
+            thead.setAttribute("style", "background-color:grey");
+            table.setAttribute("style", "border:1px solid black;border-collapse: collapse;");
+            
+
+            for (var i = 0; i < data[0].length; i++) {
+                var th = document.createElement("th");
+                var newText = document.createTextNode(data[0][i]);
+                th.appendChild(newText);
+                tr.appendChild(th);
+            }
+            thead.appendChild(tr);
+            table.appendChild(thead);
+
+            var tbody = document.createElement("tbody");
+            for (var i = 1; i < data.length; i++) {
+                var tr = document.createElement("tr");
+                for (var j = 0; j < data[i].length; j++) {
+                    var td = document.createElement("td");
+                    var newText = document.createTextNode(data[i][j]);
+                    td.appendChild(newText);
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+
+            table.appendChild(tbody);
+            for(let el of table.getElementsByTagName("td")) {
+                el.setAttribute("style", "border:1px solid black;background-color:darkgrey;padding:6px");
+            }
+            for(let el of table.getElementsByTagName("th")) {
+                el.setAttribute("style", "border:1px solid black;padding:6px");
+            }
+            document.body.appendChild(table);
+        }
+        let data = [
+            ["",2013,2014,2015],
+            ["Нефть",43,51,79],
+            ["Золото",29,34,48],
+            ["Дерево",38,57,36],
+        ]
+        createTable(data);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        create1Button();
+        create2Button();
+        create3Button();
+        create4Button();
+        create5Button();
+        document.getElementById("button2").disabled = true;
+        document.getElementById("button3").disabled = true;
+        document.getElementById("button4").disabled = true;
+        document.getElementById("button5").disabled = true;
+
+        function create1Button() {
+            let button = document.createElement("button");
+            button.textContent = "Чтобы что-то работало нужно Добавить список";
+            button.onclick = function () {
+                let ol = document.createElement("ol");
+                for (let i = 0; i < 3; i++) {
+                    let li = document.createElement("li");
+                    ol.appendChild(li);
+                }
+                document.body.appendChild(ol);
+                document.getElementById("button2").disabled = false;
+                document.getElementById("button3").disabled = false;
+                document.getElementById("button4").disabled = false;
+                document.getElementById("button5").disabled = false;
+            }
+            document.body.appendChild(button);
+
+        }
+        function create2Button() {
+            let button = document.createElement("button");
+            button.textContent = "Добавить элемент в начало пжлст";
+            button.id = "button2"
+
+            button.onclick = function () {
+                let ol = document.getElementsByTagName("ol")[0];
+                let li = document.createElement("li");
+                li.textContent = "NACHALO"
+                ol.insertAdjacentElement("afterBegin", li);
+            }
+            document.body.appendChild(button);
+        }
+        function create3Button() {
+            let button = document.createElement("button");
+            button.textContent = "Добавить элемент в конец пжлст";
+            button.id = "button3"
+            button.onclick = function () {
+                let ol = document.getElementsByTagName("ol")[0];
+                let li = document.createElement("li");
+                li.textContent = "KONEC XIXI-XAXA"
+                ol.insertAdjacentElement("beforeEnd", li);
+            }
+            document.body.appendChild(button);
+        }
+        function create4Button() {
+            let button = document.createElement("button");
+            button.textContent = "Поменяйте ну давайте давайте нападайте";
+            button.id = "button4"
+            button.onclick = function () {
+                let ol = document.createElement("ol");
+                let li1 = document.getElementsByTagName("ol")[0].children[0]
+                let li2 = document.getElementsByTagName("ol")[0].children[document.getElementsByTagName("ol")[0].children.length - 1]
+                document.getElementsByTagName("ol")[0].insertAdjacentElement("beforeEnd", li1)
+                document.getElementsByTagName("ol")[0].insertAdjacentElement("afterBegin", li2)
+                document.body.appendChild(ol);
+            }
+            document.body.appendChild(button);
+        }
+        function create5Button() {
+            let button = document.createElement("button");
+            button.textContent = "Зарезать центальный элемент";
+            button.id = "button5"
+            button.onclick = function () {
+                document.getElementsByTagName("ol")[0].children[parseInt(document.getElementsByTagName("ol")[0].children.length / 2)].remove();
+            }
+            document.body.appendChild(button);
+        }
+    </script>
+</body>
+
+</html>
