@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  Выберите направление <select id="route">
+    <option>Не выбрано</option>
+    <option value="1">из A в B</option>
+    <option value="2">из B в A</option>
+    <option value="3">из A в B и обратно в А</option>
+  </select>
+  Выберите время <select id="timeA">
+    <option>Не выбрано</option>
+    <option value="timeA1">18:00</option>
+    <option value="timeA2">18:30</option>
+    <option value="timeA3">18:45</option>
+    <option value="timeA4">19:00</option>
+    <option value="timeA5">19:15</option>
+    <option value="timeA6">21:00</option>
+  </select>
+  <select id="timeB">
+    <option>Не выбрано</option>
+    <option value="timeB1">18:30</option>
+    <option value="timeB2">18:45</option>
+    <option value="timeB3">19:00</option>
+    <option value="timeB4">19:15</option>
+    <option value="timeB5">19:35</option>
+    <option value="timeB6">21:50</option>
+    <option value="timeB7">21:55</option>
+  </select></br>
+  <input id="num">
+  <button id="js-button">Посчитать</button>
+  <div id="js-result">
+
+  </div>
+</body>
+<script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+<script>
+
+  $(document).on('change', '#route', function () {
+    let timeBch = [1].includes(+$(this).find('option:selected').val());
+    $('#timeB').prop('disabled', timeBch);
+  });
+  $(document).on('change', '#route', function () {
+    let timeAch = [2].includes(+$(this).find('option:selected').val());
+    $('#timeA').prop('disabled', timeAch);
+  });
+  $(document).ready(() => {
+    $('#riute').trigger('change');
+  });
+  $('#js-button').click(function () {
+    var value1 = $('#route option:selected').text();
+    var value2 = $('#timeA option:selected').text();
+    var value3 = $('#timeB option:selected').text();
+    var number = $('#num').val();
+    let m=50;
+    let time2=m*2;
+    h=0;
+    if(time2>=60){
+      h += Math.floor(time2 / 60);
+      m = time2 % 60;
+    }
+    let price1=700*number;
+    let price2=1200*number;
+   if($('#route').val() == 3){
+    $('#js-result').html('Вы заказали билетов: ' + number + ' Направление: ' + value1 +  +'общая стоимость: '+price2);
+    $('#js-result').html('Время отплытия из А: ' + value2+', время отплытия из Б: ' + value3+', время в пути: '+h+' час ' +m+' минут');
+   }
+   else{
+    $('#js-result').html('Вы заказали билетов: ' + number + ' Направление: ' + value1 + ', время отплытия: ' + value2+', время в пути: '+m+' минут, общая стоимость: '+price1);}
+  });
+</script>
+
+</html>
